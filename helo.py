@@ -9,7 +9,7 @@ def greet(user):
 
 def main():
 
-    greet("HAMSA")
+    greet("Paramahamsa")
     
     return None
     
