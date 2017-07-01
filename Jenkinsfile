@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Prep') {
       steps {
-        sh 'sh (returnStdout: true, script: "uname -a")'
+        sh 'uname -a'
       }
     }
     stage('Env') {
       steps {
-        sh 'sh "printenv"'
+        sh 'printenv'
       }
     }
   }
