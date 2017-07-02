@@ -11,10 +11,5 @@ pipeline {
         sh 'printenv'
       }
     }
-    stage('shout') {
-      steps {
-        sh 'sh(returnStdout: true, script: \'git rev-parse --abbrev-ref HEAD\').trim()'
-      }
-    }
   }
 }
