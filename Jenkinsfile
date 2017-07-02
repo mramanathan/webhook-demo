@@ -15,5 +15,14 @@ pipeline {
         
       }
     }
+    stage('repo_info') {
+      steps {
+        script {
+          def repo_name = sh(returnStdout: true, script: 'git config --get remote.origin.url').trim()
+          println "Repo name, " + repo_name
+        }
+        
+      }
+    }
   }
 }
