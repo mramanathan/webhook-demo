@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Prep') {
       steps {
-        sh(returnStdout: true, script: 'uname -a').trim()
+        sh 'uname -a'
       }
     }
     stage('Env') {
