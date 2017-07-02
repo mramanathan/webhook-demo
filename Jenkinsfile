@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Prep') {
       steps {
-        def hostinfo = sh(returnStdout: true, script: 'uname -a')
+        hostinfo = sh(returnStdout: true, script: 'uname -a').trim()
         echo "Host info, ${hostinfo}"
       }
     }
