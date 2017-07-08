@@ -18,6 +18,8 @@ pipeline {
         script {
           def commitId = sh(returnStdout: true, script: 'git rev-parse --verify HEAD').trim()
           println "Commit SHA1 id, " + commitId.take(9)
+          def pullreq_branch = sh(returnStdout: true, script: 'git branch -a --contains commitId').trim()
+          println "Pull request branch, pullreq_branch"
         }
       }
     }
