@@ -5,7 +5,10 @@ pipeline {
       steps {
         sh 'printenv'
         script {
-          currentBuild.displayName = "mychoice-Name"
+          if (env.BRANCH_NAME.startsWith('PR-)) {
+            def pr_branch = env.BRANCH_NAME.replace(/^PR-/, 'pull-req-')
+            def custom_name = pr_branch + "-" + env.CHANGE_TITLE
+            currentBuild.displayName = custom_name
         }
       }
     }
