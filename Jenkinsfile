@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Env') {
       steps {
+        currentBuild.displayName = "mychoice-Name"
         sh 'printenv'
       }
     }
