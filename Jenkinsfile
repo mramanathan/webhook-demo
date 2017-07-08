@@ -3,8 +3,10 @@ pipeline {
   stages {
     stage('Env') {
       steps {
-        currentBuild.displayName = "mychoice-Name"
         sh 'printenv'
+        script {
+          currentBuild.displayName = "mychoice-Name"
+        }
       }
     }
     stage('Prep') {
@@ -13,7 +15,6 @@ pipeline {
           def commitId = sh(returnStdout: true, script: 'git rev-parse --verify HEAD').trim()
           println "Commit SHA1 id, " + commitId.take(9)
         }
-        
       }
     }
   }
