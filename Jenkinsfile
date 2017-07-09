@@ -10,9 +10,10 @@ pipeline {
           def prbranches = readFile('prbranch.info').trim()
           // def prbranch = sh "cat ${prbranches} | cut -d\",\" -f1"
           // def prbranch = sh "cat ${prbranches}"
-          prbranch = prbranches.split(",")[0]
-          println "PR branch, ${prbranch}"
-          echo "${prbranch}"
+          String prbranch = prbranches.split(",")[0]
+          prbranch_name = prbranch.split("/")[1]
+          branch = prbranch_name.replace(',', '')
+          println "PR branch, ${branch}"
           // branch_name = prbranch.replace(/^(origin/, '')
           // println "${branch_name}"
           // How to rename in Groovy?
