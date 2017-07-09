@@ -9,10 +9,10 @@ pipeline {
           sh "git show -s --pretty=%d HEAD^ > prbranch.info"
           def prbranches = readFile('prbranch.info').trim()
           // def prbranch = sh "cat ${prbranches} | cut -d\",\" -f1"
-          def prbranch = sh "cat ${prbranches}"
-          println "Pull request branch, ${prbranch}"
+          // def prbranch = sh "cat ${prbranches}"
+          println "Pull request branches, ${prbranches}"
           // How to rename in Groovy?
-          if (env.BRANCH_NAME.startsWith('PR-')) { 
+          if (env.BRANCH_NAME.startsWith('PR-')) {
             env.pullreq_branch = sh(returnStdout: true, script: "git branch -a --contains ${commitId}").trim()
             println "Pull request branch, ${pullreq_branch}"
           }
