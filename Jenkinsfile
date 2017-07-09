@@ -11,6 +11,9 @@ pipeline {
           // def prbranch = sh "cat ${prbranches} | cut -d\",\" -f1"
           // def prbranch = sh "cat ${prbranches}"
           println "Pull request branches, ${prbranches}"
+          prbranch = prbranches.split(",")[0]
+          branch_name = prbranch.replace(/^(origin/, '')
+          println "${branch_name}"
           // How to rename in Groovy?
           if (env.BRANCH_NAME.startsWith('PR-')) {
             env.pullreq_branch = sh(returnStdout: true, script: "git branch -a --contains ${commitId}").trim()
