@@ -12,7 +12,7 @@ pipeline {
           // def prbranch = sh "cat ${prbranches}"
           prbranch = prbranches.split(",")[0]
           println "PR branch, ${prbranch}"
-          def branch_name = sh(returnStdout: true, script: "cat ${prbranch}").trim()
+          def branch_name = sh "echo ${prbranch}"
           // branch_name = prbranch.replace(/^(origin/, '')
           // println "${branch_name}"
           // How to rename in Groovy?
