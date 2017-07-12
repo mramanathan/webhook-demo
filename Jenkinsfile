@@ -8,8 +8,6 @@ pipeline {
           println "Commit SHA1 id, " + commitId.take(9)
           sh "git show -s --pretty=%d HEAD^ > prbranch.info"
           def prbranches = readFile('prbranch.info').trim()
-          // def prbranch = sh "cat ${prbranches} | cut -d\",\" -f1"
-          // def prbranch = sh "cat ${prbranches}"
           String prbranch = prbranches.split(",")[0]
           prbranch_name = prbranch.split("/")[1]
           branch = prbranch_name.replace(',', '')
