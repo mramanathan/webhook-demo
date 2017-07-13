@@ -1,15 +1,11 @@
-pipeline {
-  agent any
-  stages {
-    stage('Prep') {
-      steps {
-        sh 'uname -a'
-      }
-    }
-    stage('Env') {
-      steps {
-        sh 'printenv'
-      }
-    }
-  }
+node {
+  
+  deleteDir()
+  
+  git url: 'https://github.com/mramanathan/webhook-demo', branch: 'master'
+  
+  prbranch = load 'prbranch.groovy'
+  
+  prbranch.name()
+  
 }
