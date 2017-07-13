@@ -20,7 +20,8 @@ node {
       
           print "now with traditional for loop..."
           for (i=0; i<files.size(); i++) {
-              println files[i]
+              def filename = "${files[i]}"
+              println filename
           }
       } else {
         println "modified file, ${files[0]}"
