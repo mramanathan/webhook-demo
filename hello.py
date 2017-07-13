@@ -7,7 +7,7 @@ def greet(user):
     
 
 def main():
-    greet("St. Ramakrishna Paramahamsa")
+    greet("Minions")
     
     return None
     
