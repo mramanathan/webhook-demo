@@ -1,8 +1,9 @@
 node {
+  stage('Combo') {
+    deleteDir()
   
-  deleteDir()
+    git url: 'https://github.com/mramanathan/webhook-demo', branch: 'master'
   
-  git url: 'https://github.com/mramanathan/webhook-demo', branch: 'master'
-  
-  sh "python hello.py"
+    sh "python hello.py"
+  }
 }
