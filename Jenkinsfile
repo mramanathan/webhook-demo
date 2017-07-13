@@ -23,7 +23,7 @@ node {
               println files[i]
           }
       } else {
-        println "modified file, ${files}"
+        println "modified file, ${files[0]}"
       }
       
       sh "python hello.py"
